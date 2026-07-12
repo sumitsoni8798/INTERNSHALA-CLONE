@@ -1,0 +1,81 @@
+/* postcss */
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== RESPONSIVE BASE STYLES ===== */
+/* Prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Ensure images and videos don't overflow */
+img, video, iframe, embed, object {
+  max-width: 100%;
+}
+
+/* Responsive tables - allow horizontal scroll when needed */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+/* Prevent long words from breaking layout */
+p, h1, h2, h3, h4, h5, h6, span, a, li, td, th, div {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure inputs don't overflow their containers */
+input, textarea, select, button {
+  max-width: 100%;
+}
+
+/* Smooth scrolling for mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure flex containers wrap properly on small screens */
+.flex-responsive {
+  flex-wrap: wrap;
+}
+
+/* Safe area padding for mobile devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Responsive container padding */
+.container-responsive {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
